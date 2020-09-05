@@ -26,7 +26,10 @@ class Question:
             except ValueError:
                 return False
         elif self.question_type.name == 'DROPDOWN':
-            return answer.isnumeric() and len(self.options) <= int(answer) > 0
+            return answer.isnumeric() and len(self.options) >= int(answer) > 0
+
+    def add_option(self, option):
+        self.options.append(option)
 
 
 question1 = Question('Whats your name?', 1)
@@ -36,9 +39,14 @@ print(question1.question, question1.validate('fdafsad323123fasfsadfads'))
 q2 = Question('What\'s your favorite number?', 2)
 print(q2.question, q2.validate('32142141124'))
 print(q2.question, q2.validate('2232frew'))
-
-q3 = Question('How are you?', 3)
-print(q3.question, q3.validate('dsfafdsa dfaafasdfads fasdsfad'))
+# Dropdown testing
+q3 = Question('What\'s your gender?', 3)
+q3.add_option('Male')
+q3.add_option('Female')
+q3.add_option('Other')
+print(q3.question, q3.validate('1'))
+print(q3.question, q3.validate('2'))
+print(q3.question, q3.validate('3'))
 print(q3.question, q3.validate('dsfafdsa dfaafasdfads fasdsfad'))
 
 q4 = Question('How are you?', 4)
