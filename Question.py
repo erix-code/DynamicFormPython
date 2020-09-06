@@ -1,5 +1,5 @@
-from QuestionType import *
 from datetime import datetime
+from QuestionType import *
 
 
 class Question:
@@ -33,22 +33,22 @@ class Question:
 
 
 question1 = Question('Whats your name?', 1)
-print(question1.question, question1.validate('dsfafdsa dfaafasdfads fasdsfad'))
-print(question1.question, question1.validate('fdafsad323123fasfsadfads'))
+# print(question1.question, question1.validate('dsfafdsa dfaafasdfads fasdsfad'))
+# print(question1.question, question1.validate('fdafsad323123fasfsadfads'))
 
 q2 = Question('What\'s your favorite number?', 2)
-print(q2.question, q2.validate('32142141124'))
-print(q2.question, q2.validate('2232frew'))
+# print(q2.question, q2.validate('32142141124'))
+# print(q2.question, q2.validate('2232frew'))
 # Dropdown testing
 q3 = Question('What\'s your gender?', 3)
 q3.add_option('Male')
 q3.add_option('Female')
 q3.add_option('Other')
-print(q3.question, q3.validate('1'))
-print(q3.question, q3.validate('2'))
-print(q3.question, q3.validate('3'))
-print(q3.question, q3.validate('dsfafdsa dfaafasdfads fasdsfad'))
+# print(q3.question, q3.validate('1'))
+# print(q3.question, q3.validate('2'))
+# print(q3.question, q3.validate('3'))
+# print(q3.question, q3.validate('dsfafdsa dfaafasdfads fasdsfad'))
 
 q4 = Question('How are you?', 4)
-print(q4.question, q4.validate('2003-3-4'))
-print(q4.question, q4.validate('200334'))
+# print(q4.question, q4.validate('2003-3-4'))
+# print(q4.question, q4.validate('200334'))
