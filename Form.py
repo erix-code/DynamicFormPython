@@ -1,6 +1,7 @@
-import json
 from Question import *
 from StoreForm import StoreForm
+
+store_form = StoreForm()
 
 
 class Form:
@@ -8,22 +9,14 @@ class Form:
         self.questions = []
         self.name = name
 
-    def save(self, option='json'):
-        pass
+    def save(self, option=('json', 'xml')):
+        store_form.forms.append(self)
+        store_form.store_json()
 
-    def to_json(self):
-        return json.dumps(self, default=lambda o: o.__dict__, indent=2, sort_keys=True)
+    @staticmethod
+    def get_all():
+        return store_form.forms
 
 
-form = Form('My form')
-form.questions.append(question1)
-form.questions.append(q2)
-form.questions.append(q3)
-form.questions.append(q4)
-form.save()
-
-sform = StoreForm()
-sform.forms.append(form)
-sform.forms.append(form)
-sform.forms.append(form)
-sform.store_json()
+# form = Form('My form')
+# form.save()

@@ -6,7 +6,10 @@ class Question:
     def __init__(self, question, question_type):
         self.question = question
         self.question_type = question_types[question_type - 1]
-        self.options = []
+        if 'DROPDOWN' == self.question_type.name:
+            self.options = []
+        else:
+            self.options = None
 
     def validate(self, answer: str):
         """ Validate the answer by the type """
