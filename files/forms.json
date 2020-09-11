@@ -1,0 +1,50 @@
+[
+  {
+    "name": "My form",
+    "questions": [
+      {
+        "question": "Nombre",
+        "type": "TEXT"
+      },
+      {
+        "question": "Edad",
+        "type": "NUMBER"
+      },
+      {
+        "options": [
+          "Mujer",
+          "Hombre",
+          "Otro"
+        ],
+        "question": "Genero",
+        "type": "DROPDOWN"
+      },
+      {
+        "question": "Fecha nacimiento",
+        "type": "DATE"
+      }
+    ]
+  },
+  {
+    "name": "Otro form",
+    "questions": [
+      {
+        "question": "Pais",
+        "type": "TEXT"
+      },
+      {
+        "options": [
+          "America",
+          "Europa",
+          "Oceania"
+        ],
+        "question": "Continente",
+        "type": "DROPDOWN"
+      },
+      {
+        "question": "Fecha",
+        "type": "DATE"
+      }
+    ]
+  }
+]

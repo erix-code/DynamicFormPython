@@ -1,0 +1,44 @@
+[
+  {
+    "answers": [
+      {
+        "answer": "Eri"
+      },
+      {
+        "answer": "23"
+      },
+      {
+        "answer": "2"
+      },
+      {
+        "answer": "1999-2-24"
+      }
+    ],
+    "form": {
+      "name": "My form",
+      "questions": [
+        {
+          "question": "Nombre",
+          "type": "TEXT"
+        },
+        {
+          "question": "Edad",
+          "type": "NUMBER"
+        },
+        {
+          "options": [
+            "Mujer",
+            "Hombre",
+            "Otro"
+          ],
+          "question": "Genero",
+          "type": "DROPDOWN"
+        },
+        {
+          "question": "Fecha nacimiento",
+          "type": "DATE"
+        }
+      ]
+    }
+  }
+]
