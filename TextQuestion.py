@@ -12,6 +12,3 @@ class TextQuestion(Question):
         result = re.match(pattern, answer)
         return result is not None
 
-
-# question = TextQuestion('What is your name?')
-# print(question.validate('fadfasfsadshit'))

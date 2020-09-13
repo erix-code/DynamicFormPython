@@ -12,8 +12,4 @@ class DropdownQuestion(Question):
 
 
 d_question = DropdownQuestion('Cual es tu genero?', ['shit', 'shit', 'shit'])
-# print(dquestion.validate('321321'))
-# print(dquestion.validate(0))
-# print(dquestion.validate(1))
-# print(dquestion.validate(2))
-# print(dquestion.validate(3))
+

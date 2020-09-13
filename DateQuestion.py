@@ -6,6 +6,7 @@ class DateQuestion(Question):
     def __init__(self, question):
         super().__init__(question)
         self.type = 'DATE'
+
     def validate(self, answer):
         try:
             datetime.strptime(answer, '%Y-%m-%d')
