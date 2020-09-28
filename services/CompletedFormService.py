@@ -1,4 +1,6 @@
 import json
+from dicttoxml import dicttoxml
+from xml.dom.minidom import parseString
 
 from Answer import Answer
 from DateQuestion import DateQuestion
@@ -15,11 +17,12 @@ class CompletedFormService(Service):
     def __init__(self):
         super().__init__()
         self.file = 'completed_form.json'
+        self.xml_file = 'completed_form.xml'
         self.completed_forms = []
 
     def fetch(self):
         try:
-            with open(f'{self.url}{self.file}', 'r') as file:
+            with open(f'{self.path}{self.file}', 'r') as file:
                 dictionaries = json.load(file)
                 completed_forms = []
                 for item in dictionaries:
@@ -33,10 +36,8 @@ class CompletedFormService(Service):
                             form.questions.append(DropdownQuestion(question['question'], question['options']))
                         elif question['type'] == 'DATE':
                             form.questions.append(DateQuestion(question['question']))
-
                     completed_form = CompletedForm(form)
                     answers = []
-
                     for answer in item['answers']:
                         answers.append(Answer(answer['answer']))
                     completed_form.answers = answers
@@ -46,9 +47,22 @@ class CompletedFormService(Service):
         except Exception as error:
             pass
 
-    def store(self):
-        with open(f'{self.url}{self.file}', 'w') as file:
+    def store_xml(self):
+        with open(f'{self.path}{self.file}', 'r') as file:
+            dictionaries = json.load(file)
+            xml = dicttoxml(dictionaries)
+            dom = parseString(xml)
+            file.close()
+        with open(f'{self.path}{self.xml_file}', 'w') as file:
+            file.write(dom.toprettyxml())
+
+    def store_json(self):
+        with open(f'{self.path}{self.file}', 'w') as file:
             file.write(self.forms_to_json())
+
+    def store(self):
+        self.store_json()
+        self.store_xml()
 
     def forms_to_json(self):
         return json.dumps(self.completed_forms, default=lambda o: o.__dict__, indent=2, sort_keys=True)

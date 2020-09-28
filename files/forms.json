@@ -11,38 +11,33 @@
         "type": "NUMBER"
       },
       {
+        "question": "Fecha de nacmiento",
+        "type": "DATE"
+      },
+      {
         "options": [
-          "Mujer",
           "Hombre",
+          "Mujer",
           "Otro"
         ],
         "question": "Genero",
         "type": "DROPDOWN"
-      },
-      {
-        "question": "Fecha nacimiento",
-        "type": "DATE"
       }
     ]
   },
   {
-    "name": "Otro form",
+    "name": "otro form",
     "questions": [
       {
-        "question": "Pais",
+        "question": "Name",
         "type": "TEXT"
       },
       {
-        "options": [
-          "America",
-          "Europa",
-          "Oceania"
-        ],
-        "question": "Continente",
-        "type": "DROPDOWN"
+        "question": "Age",
+        "type": "NUMBER"
       },
       {
-        "question": "Fecha",
+        "question": "Birthdate",
         "type": "DATE"
       }
     ]

@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<root>
+	<item type="dict">
+		<name type="str">My form</name>
+		<questions type="list">
+			<item type="dict">
+				<question type="str">Nombre</question>
+				<type type="str">TEXT</type>
+			</item>
+			<item type="dict">
+				<question type="str">Edad</question>
+				<type type="str">NUMBER</type>
+			</item>
+			<item type="dict">
+				<question type="str">Fecha de nacmiento</question>
+				<type type="str">DATE</type>
+			</item>
+			<item type="dict">
+				<options type="list">
+					<item type="str">Hombre</item>
+					<item type="str">Mujer</item>
+					<item type="str">Otro</item>
+				</options>
+				<question type="str">Genero</question>
+				<type type="str">DROPDOWN</type>
+			</item>
+		</questions>
+	</item>
+	<item type="dict">
+		<name type="str">otro form</name>
+		<questions type="list">
+			<item type="dict">
+				<question type="str">Name</question>
+				<type type="str">TEXT</type>
+			</item>
+			<item type="dict">
+				<question type="str">Age</question>
+				<type type="str">NUMBER</type>
+			</item>
+			<item type="dict">
+				<question type="str">Birthdate</question>
+				<type type="str">DATE</type>
+			</item>
+		</questions>
+	</item>
+</root>

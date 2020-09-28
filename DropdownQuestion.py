@@ -1,3 +1,4 @@
+from re import match
 from Question import Question
 
 
@@ -7,9 +8,11 @@ class DropdownQuestion(Question):
         self.options = options
         self.type = 'DROPDOWN'
 
-    def validate(self, answer: int):
-        return len(self.options) > int(answer) >= 0
-
-
-d_question = DropdownQuestion('Cual es tu genero?', ['shit', 'shit', 'shit'])
+    def validate(self, answer):
+        pattern = r'^[0-9]+$'
+        check = match(pattern, answer)
+        if check:
+            return len(self.options) > int(answer) >= 0
+        else:
+            return False
 

@@ -1,4 +1,6 @@
 import json
+from dicttoxml import dicttoxml
+from xml.dom.minidom import parseString
 
 from services.Service import Service
 from Form import Form
@@ -12,11 +14,12 @@ class FormService(Service):
     def __init__(self):
         super().__init__()
         self.file = 'forms.json'
+        self.xml_file = 'forms.xml'
         self.forms = []
 
     def fetch(self):
         try:
-            with open(f'{self.url}{self.file}', 'r') as file:
+            with open(f'{self.path}{self.file}', 'r') as file:
                 dictionaries = json.load(file)
                 forms = []
                 for item in dictionaries:
@@ -36,9 +39,22 @@ class FormService(Service):
         except Exception as error:
             pass
 
-    def store(self):
-        with open(f'{self.url}{self.file}', 'w') as file:
+    def store_xml(self):
+        with open(f'{self.path}{self.file}', 'r') as file:
+            dictionaries = json.load(file)
+            xml = dicttoxml(dictionaries)
+            dom = parseString(xml)
+            file.close()
+        with open(f'{self.path}{self.xml_file}', 'w') as file:
+            file.write(dom.toprettyxml())
+
+    def store_json(self):
+        with open(f'{self.path}{self.file}', 'w') as file:
             file.write(self.forms_to_json())
+
+    def store(self):
+        self.store_json()
+        self.store_xml()
 
     def forms_to_json(self):
         return json.dumps(self.forms, default=lambda o: o.__dict__, indent=2, sort_keys=True)

@@ -2,40 +2,28 @@
   {
     "answers": [
       {
-        "answer": "Eri"
+        "answer": "Erick"
       },
       {
         "answer": "23"
       },
       {
-        "answer": "2"
-      },
-      {
-        "answer": "1999-2-24"
+        "answer": "2001-12-12"
       }
     ],
     "form": {
-      "name": "My form",
+      "name": "otro form",
       "questions": [
         {
-          "question": "Nombre",
+          "question": "Name",
           "type": "TEXT"
         },
         {
-          "question": "Edad",
+          "question": "Age",
           "type": "NUMBER"
         },
         {
-          "options": [
-            "Mujer",
-            "Hombre",
-            "Otro"
-          ],
-          "question": "Genero",
-          "type": "DROPDOWN"
-        },
-        {
-          "question": "Fecha nacimiento",
+          "question": "Birthdate",
           "type": "DATE"
         }
       ]

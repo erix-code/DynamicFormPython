@@ -55,6 +55,9 @@ class Menu:
         print('Nuevo Formulario')
         print('Nombre: ', end='')
         name = input()
+        if name == '':
+            print('[ERROR] Nombre invalido')
+            return
         new_form = Form(name)
         opt = ''
         while opt != '0':
@@ -79,18 +82,20 @@ class Menu:
             if 0 < question_type <= len(question_types):
                 print('[{}] Pregunta: '.format(question_types[question_type - 1].name), end='')
                 question = input()
-                if question_type == 1:
-                    form.questions.append(TextQuestion(question))
-                elif question_type == 2:
-                    form.questions.append(NumberQuestion(question))
-                elif question_type == 3:
-                    print('Ejm: Opcion 1-Opcion 2-Opcion 3 SEPARAR CON {}'.format("'-'"))
-                    options = input().split('-')
-                    new_question = DropdownQuestion(question, options)
-                    form.questions.append(new_question)
+                if question != '':
+                    if question_type == 1:
+                        form.questions.append(TextQuestion(question))
+                    elif question_type == 2:
+                        form.questions.append(NumberQuestion(question))
+                    elif question_type == 3:
+                        print('Ejm: Opcion 1-Opcion 2-Opcion 3 SEPARAR CON {}'.format("'-'"))
+                        options = input().split('-')
+                        new_question = DropdownQuestion(question, options)
+                        form.questions.append(new_question)
+                    else:
+                        form.questions.append(DateQuestion(question))
                 else:
-                    form.questions.append(DateQuestion(question))
-
+                    print('[ERROR] Nombre invalido')
     def show_forms(self):
         print('Lista de formularios')
         try:
@@ -124,6 +129,7 @@ class Menu:
                     print()
                 answer = input()
                 while not question.validate(answer):
+                    print('[ERROR] No cumple con el formato,\nIntenta de nuevo')
                     answer = input()
                 answers.append(Answer(answer))
             completed_form.answers = answers

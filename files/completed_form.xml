@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<root>
+	<item type="dict">
+		<answers type="list">
+			<item type="dict">
+				<answer type="str">Erick</answer>
+			</item>
+			<item type="dict">
+				<answer type="str">23</answer>
+			</item>
+			<item type="dict">
+				<answer type="str">2001-12-12</answer>
+			</item>
+		</answers>
+		<form type="dict">
+			<name type="str">otro form</name>
+			<questions type="list">
+				<item type="dict">
+					<question type="str">Name</question>
+					<type type="str">TEXT</type>
+				</item>
+				<item type="dict">
+					<question type="str">Age</question>
+					<type type="str">NUMBER</type>
+				</item>
+				<item type="dict">
+					<question type="str">Birthdate</question>
+					<type type="str">DATE</type>
+				</item>
+			</questions>
+		</form>
+	</item>
+</root>
